@@ -1,0 +1,17 @@
+<main>
+  <h1>$title$</h1>
+</main>
+
+$for(posts)$
+  <section class="post">
+    <h2><a href="$url$">$title$</a></h2>
+
+    $body$
+
+    <p>
+      <small>
+        $date$, tagged with $tags$
+      </small>
+    </p>
+  </article>
+$endfor$

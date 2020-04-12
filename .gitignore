@@ -1,0 +1,4 @@
+*.cabal
+.stack-work
+_cache
+_site

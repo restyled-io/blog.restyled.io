@@ -1,0 +1,19 @@
+---
+name: blog
+version: 0.0.0
+license: MIT
+executables:
+  blog:
+    main: Main.hs
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - base
+      - blaze-markup
+      - filepath
+      - hakyll
+      - skylighting
+      - text
+      - xml-conduit
