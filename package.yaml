@@ -14,6 +14,5 @@ executables:
       - blaze-markup
       - filepath
       - hakyll
-      - skylighting
       - text
       - xml-conduit

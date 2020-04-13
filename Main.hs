@@ -7,7 +7,6 @@ where
 
 import Data.Text (pack)
 import Hakyll hiding (host)
-import Skylighting (pygments, styleToCss)
 import System.FilePath.Posix (splitFileName)
 import qualified System.FilePath.Posix as P
 import Text.Blaze (toMarkup)
@@ -18,7 +17,7 @@ main :: IO ()
 main = hakyll $ do
     create ["css/syntax.css"] $ do
         route idRoute
-        compile $ makeItem $ styleToCss pygments
+        compile copyFileCompiler
 
     -- http://javran.github.io/posts/2014-03-01-add-tags-to-your-hakyll-blog.html
     tags <- buildTags "posts/*" $ fromCapture "tags/*/index.html"
