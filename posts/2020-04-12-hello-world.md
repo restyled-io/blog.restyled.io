@@ -33,7 +33,7 @@ Developers, in my experience, tend to fall into one of two camps on this:
 
 1. These benefits are so important that we should work towards this consistent
    style in any way possible -- including detailed style guides and rigid
-   enforcement though code review.
+   enforcement through code review.
 
 1. These benefits are not worth the very real human tax of endless subjective
    style discussions, nitpicked code review, and ultimately humans being humans
@@ -55,7 +55,7 @@ work.
 (Maybe you're not convinced, maybe you think the auto-formatted style is ugly,
 I'd encourage you to try it out for a week or two. As someone from the first
 camp, who took pride in knowing and enforcing a consistent style across the
-team, the experience of letting go has been is _delightful_.)
+team, the experience of letting go has been _delightful_.)
 
 ### So what's the problem?
 
@@ -107,9 +107,8 @@ editors to match the rest of the team. In this way, Restyled acts as a
 (friendly) forcing function, naturally nudging the team towards a consistent
 setup and outcomes.
 
-If you're interested in trying this out, head over to the [GitHub
-Marketplace][app]. Restyled is free to run on public repositories, and we have
-private repository plans starting at $5 with 14 day free trial.
+👉 If you're interested in trying this out, head over to the [GitHub
+Marketplace][app].
 
 ## What else?
 
@@ -134,8 +133,8 @@ considering, which I'll replace with links once the content lands:
   "Restyle Machines", which is a group of instances that automatically resize
   according to queue depth -- all built with AWS primitives
 
-- **Penny Jobs**: outlining our all-in costs and how we do what we do for about
-  10,000 Restyle Jobs per month for ~$100
+- **Penny Jobs**: outlining our all-in costs and how we do what we do for 10,000
+  Restyle Jobs for under $100 every month
 
 - **Suggested Changes**: why implementing Restyled on GitHub's Suggested Changes
   feature makes total sense, but is also nearly impossible
@@ -145,6 +144,5 @@ considering, which I'll replace with links once the content lands:
 
 - **CHANGELOG Back-fill**: a post or posts detailing important changes to
   Restyled's features that landed over the lifetime of the project
-
 
 Until then, cheers!
