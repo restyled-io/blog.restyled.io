@@ -36,6 +36,7 @@ jobs:
           root: _site
           bucket: ${{ steps.prep.outputs.BucketName }}
           delete: true
+          acl: public-read
 
       - if: ${{ github.ref == 'refs/heads/main' }}
         run: |
