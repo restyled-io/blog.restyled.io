@@ -27,25 +27,18 @@ jobs:
 
       - id: prep
         run: |
-          get_output() {
-            aws cloudformation describe-stacks \
-              --stack-name sites-blog \
-              --query 'Stacks[*].Outputs[?OutputKey==`'"$1"'`].OutputValue' \
-              --output text
-          }
+          aws cloudformation describe-stacks --stack-name sites-blog --output json |
+            jq --raw-output '.Stacks[0].Outputs[] | "::set-output name=" + .OutputKey + "::" + .OutputValue'
 
-          printf '::set-output name=bucket::%s\n' "$(get_output BucketName)"
-          printf '::set-output name=distribution-id::%s\n' "$(get_output DistributionId)"
-
-      - if: ${{ github.ref != 'refs/heads/main' }}
-        run: |
-          aws s3 sync --dryrun --acl public-read --delete _site \
-            s3://${{ steps.prep.outputs.bucket }}
+      - if: ${{ github.ref == 'refs/heads/main' }}
+        uses: restyled/aws-s3-sync-by-hash-action@main
+        with:
+          root: _site
+          bucket: ${{ steps.prep.outputs.BucketName }}
+          delete: true
 
       - if: ${{ github.ref == 'refs/heads/main' }}
         run: |
-          aws s3 sync --acl public-read --delete _site \
-            s3://${{ steps.prep.outputs.bucket }}
           aws cloudfront create-invalidation \
-            --distribution-id ${{ steps.prep.outputs.distribution-id }} \
+            --distribution-id ${{ steps.prep.outputs.DistributionId }} \
             --paths "/*"
