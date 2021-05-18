@@ -38,7 +38,7 @@ jobs:
           printf '::set-output name=distribution-id::%s\n' "$(get_output DistributionId)"
 
       - if: ${{ github.ref != 'refs/heads/main' }}
-      - run: |
+        run: |
           aws s3 sync --dryrun --acl public-read --delete _site \
             s3://${{ steps.prep.outputs.bucket }}
 
