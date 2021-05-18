@@ -31,7 +31,7 @@ jobs:
             jq --raw-output '.Stacks[0].Outputs[] | "::set-output name=" + .OutputKey + "::" + .OutputValue'
 
       - if: ${{ github.ref == 'refs/heads/main' }}
-        uses: restyled/aws-s3-sync-by-hash-action@main
+        uses: restyled-io/aws-s3-sync-by-hash-action@main
         with:
           root: _site
           bucket: ${{ steps.prep.outputs.BucketName }}
